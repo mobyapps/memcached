@@ -30,10 +30,12 @@ libssl-dev                      \
 \
 && cd /usr/local/src/memcached-${MEMCACHED_VERSION} \
 && ./configure --prefix=/usr/local/memcached \
---runstatedir=/usr/local/memcached/crunstate \
---datadir=/usr/local/memcached/cdata \
+--runstatedir=/usr/local/memcached/rsdir \
+--datadir=/usr/local/memcached/ddir \
 --enable-64bit \
-
+--enable-seccomp \
+--enable-tls \
+\
 && make && make install \
 \
 && echo '' >> ~/.bashrc \
